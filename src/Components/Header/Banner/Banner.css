@@ -1,0 +1,22 @@
+.banner {
+    background-color: black;
+    width: 100%;
+    margin-top: 3%;
+}
+
+.banner h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 40px;
+
+
+}
+
+
+
+.banner p:nth-child(4) {
+
+    line-height: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+}

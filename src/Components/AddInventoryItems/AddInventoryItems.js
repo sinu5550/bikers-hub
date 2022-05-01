@@ -2,6 +2,8 @@ import React from 'react';
 import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import './AddInventoryItems.css';
+import brandLogo from '../../Images/bikers-hub.png';
+
 
 const AddInventoryItems = () => {
     const { register, handleSubmit } = useForm();
@@ -22,8 +24,9 @@ const AddInventoryItems = () => {
     }
     return (
         <div className='mt-28'>
-            <div className='bg-white mx-auto w-10/12 py-10 px-0 shadow-lg'>
-                <h1 className='text-center text-3xl font-bold mb-8'>Add items</h1>
+            <div className='bg-white mx-auto w-10/12 py-10 pt-6 px-0 shadow-lg'>
+                <img src={brandLogo} width='200px' className='block mx-auto' alt="BIKERS_HUB" />
+                <h1 className='text-center text-3xl font-bold mb-8 title'>Add Items</h1>
                 <div className=''>
                     <form className='flex flex-col form-control' onSubmit={handleSubmit(onSubmit)} >
                         <div className='grid grid-cols-2'>
@@ -39,8 +42,8 @@ const AddInventoryItems = () => {
                                 <input className='mb-3 ' placeholder='Photo URL' type="text" {...register("img")} />
                             </div>
                         </div>
-                        <div className='flex justify-center mt-10'>
-                            <Button>
+                        <div className='flex justify-center  mt-10'>
+                            <Button type='submit'>
                                 Add Items
                             </Button>
                         </div>

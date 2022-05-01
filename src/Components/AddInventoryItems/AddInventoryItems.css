@@ -9,3 +9,9 @@ textarea {
     outline: none;
 
 }
+
+.title {
+    font-family: 'Teko', sans-serif;
+    font-size: 40px;
+    margin-top: 20px;
+}
