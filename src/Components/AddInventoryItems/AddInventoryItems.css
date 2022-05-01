@@ -1,0 +1,11 @@
+.form-control input,
+textarea {
+    width: 80%;
+    display: block;
+    margin: 8px auto;
+    height: 45px;
+    border-bottom: 2px solid gray;
+    background-color: transparent;
+    outline: none;
+
+}

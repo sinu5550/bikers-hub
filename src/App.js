@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
+import AddInventoryItems from './Components/AddInventoryItems/AddInventoryItems';
 import Navbar from './Components/Header/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Inventory from './Components/Inventory/Inventory';
@@ -9,10 +10,11 @@ function App() {
     <div>
       <Navbar></Navbar>
 
-      <div className='bg-indigo-600 w-full h-screen'>
+      <div>
         <Routes>
           <Route path='/' element={<Home></Home>} />
           <Route path='inventory' element={<Inventory></Inventory>} />
+          <Route path='addItems' element={<AddInventoryItems></AddInventoryItems>} />
         </Routes>
       </div>
     </div>
