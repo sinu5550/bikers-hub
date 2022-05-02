@@ -18,7 +18,7 @@ const Navbar = () => {
     let [open, setOpen] = useState(false);
     return (
         <>
-            <nav className='shadow-md w-full z-auto fixed top-0 left-0'>
+            <nav className='shadow-md w-full z-50 fixed top-0 left-0'>
                 <div className='md:flex items-center justify-between bg-black py-1 md:px-10 px-5'>
                     <div className='font-bold text-2xl cursor-pointer flex items-center '>
                         <img onClick={handleLogoClick} src={brandLogo} width='200px' to='/' alt="BIKERS_HUB" />

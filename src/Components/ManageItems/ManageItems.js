@@ -6,7 +6,7 @@ const ManageItems = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are yo sure? You want to delete this item?');
         if (proceed) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://fast-plains-59234.herokuapp.com/inventory/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -20,12 +20,14 @@ const ManageItems = () => {
     }
     return (
         <div>
-            <h1>Manage your Inventory Items</h1>
-            {
-                inventory.map(inventory => <div key={inventory._id}>
-                    <p>{inventory.productName} {inventory.description} <button onClick={() => handleDelete(inventory._id)}>delete</button> </p>
-                </div>)
-            }
+            <div className='w-full'>
+                <h1>Manage your Inventory Items</h1>
+                {
+                    inventory.map(inventory => <div key={inventory._id}>
+                        <p>{inventory.productName} {inventory.description} <button onClick={() => handleDelete(inventory._id)}>delete</button> </p>
+                    </div>)
+                }
+            </div>
         </div>
     );
 };

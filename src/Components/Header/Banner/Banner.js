@@ -6,7 +6,7 @@ import brandLogo from '../../../Images/bikers-hub.png';
 const Banner = () => {
     return (
         <div>
-            <div className='banner grid grid-cols-2 '>
+            <div className='banner grid grid-cols-2 pt-16 md:pt-28 overflow-hidden  '>
                 <div className='mt-16 md:mt-0 col-span-2 md:col-span-1 text-white banner-title flex flex-col justify-center items-center md:ml-28'>
 
                     <h1 data-aos="fade-down" className='mt-0'>SUPER OFFER</h1>

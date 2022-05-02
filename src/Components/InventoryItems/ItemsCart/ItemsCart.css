@@ -1,0 +1,9 @@
+.btn {
+    display: inline-block;
+    margin-top: auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+}

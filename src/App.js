@@ -19,8 +19,8 @@ function App() {
           <Route path='/' element={<Home></Home>} />
           <Route path='home' element={<Home></Home>} />
           <Route path='inventory' element={<Inventory></Inventory>} />
-          <Route path='add-items' element={<AddInventoryItems></AddInventoryItems>} />
-          <Route path='manage-items' element={<ManageItems></ManageItems>} />
+          <Route path='addItems' element={<AddInventoryItems></AddInventoryItems>} />
+          <Route path='manage' element={<ManageItems></ManageItems>} />
           <Route path='*' element={<NotFound></NotFound>} />
         </Routes>
       </div>
