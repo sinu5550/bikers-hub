@@ -10,7 +10,7 @@ const Navbar = () => {
         navigate('/');
     }
     let Links = [
-        { name: "HOME", link: "/" },
+        { name: "HOME", link: "/home" },
         { name: "INVENTORY", link: "/inventory" },
         { name: "BLOGS", link: "/blogs" }
 

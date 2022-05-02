@@ -3,12 +3,15 @@ import { useForm } from 'react-hook-form';
 import Button from '../Button/Button';
 import './AddInventoryItems.css';
 import brandLogo from '../../Images/bikers-hub.png';
+import { toast } from 'react-toastify';
+
 
 
 const AddInventoryItems = () => {
     const { register, handleSubmit } = useForm();
-    const onSubmit = data => {
-        console.log(data);
+    const onSubmit = (data, event) => {
+        event.target.reset()
+        // console.log(data);
         const url = `http://localhost:5000/inventory`;
         fetch(url, {
             method: 'POST',
@@ -19,9 +22,17 @@ const AddInventoryItems = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                if (!result.success) {
+                    return toast.error(result.error);
+                }
+                toast.success(result.message);
+                // console.log(result);
+                // console.log(data);
+
             })
-    }
+
+
+    };
     return (
         <div className='mt-28'>
             <div className='bg-white mx-auto w-10/12 py-10 pt-6 px-0 shadow-lg'>
@@ -50,6 +61,7 @@ const AddInventoryItems = () => {
                     </form>
                 </div>
             </div>
+
         </div>
     );
 };
