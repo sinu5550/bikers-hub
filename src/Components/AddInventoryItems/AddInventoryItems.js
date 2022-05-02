@@ -8,10 +8,15 @@ import { toast } from 'react-toastify';
 
 
 const AddInventoryItems = () => {
-    const { register, handleSubmit } = useForm();
-    const onSubmit = (data, event) => {
-        event.target.reset()
-        // console.log(data);
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = (data) => {
+
+        console.log(data);
+        if (!data) {
+            return toast.error('Input field cannot be empty');
+        }
+
         const url = `http://localhost:5000/inventory`;
         fetch(url, {
             method: 'POST',
@@ -32,6 +37,8 @@ const AddInventoryItems = () => {
             })
 
 
+        reset();
+
     };
     return (
         <div className='mt-28'>
@@ -42,15 +49,27 @@ const AddInventoryItems = () => {
                     <form className='flex flex-col form-control' onSubmit={handleSubmit(onSubmit)} >
                         <div className='grid grid-cols-2'>
                             <div className='md:col-span-1 col-span-2'>
-                                <input className='mb-3 ' placeholder='Product Name' {...register("productName", { required: true, maxLength: 20 })} />
-                                <input className='mb-3 ' placeholder='Price in Taka' type="number" {...register("price")} />
-                                <input className='mb-3 ' placeholder='Supplier Name' type="text" {...register("supplier")} />
+                                <input className='mb-3 ' placeholder='Product Name' {...register("productName", { required: true })} />
+                                {errors.productName && (<small className='text-red-700 pl-14'>Product Name is Required</small>)}
+
+                                <input className='mb-3 ' placeholder='Price in Taka' type="number" {...register("price", { required: true })} />
+                                {errors.price && (<small className='text-red-700 pl-14'>Price is Required</small>)}
+
+                                <input className='mb-3 ' placeholder='Supplier Name' type="text" {...register("supplier", { required: true })} />
+                                {errors.supplier && (<small className='text-red-700 pl-14'>Supplier Name is Required</small>)}
+
                             </div>
                             <div className='md:col-span-1 col-span-2'>
-                                <input className='mb-3 ' placeholder='Quantity' type="number" {...register("quantity")} />
+                                <input className='mb-3 ' placeholder='Quantity' type="number" {...register("quantity", { required: true })} />
+                                {errors.quantity && (<small className='text-red-700 pl-14'>Quantity is Required</small>)}
 
-                                <textarea className='mb-3' placeholder='Description' {...register("description")} />
-                                <input className='mb-3 ' placeholder='Photo URL' type="text" {...register("img")} />
+
+                                <textarea className='mb-3' placeholder='Description' {...register("description", { required: true })} />
+                                {errors.description && (<small className='text-red-700 pl-14'>Description is Required</small>)}
+
+                                <input className='mb-3 ' placeholder='Photo URL' type="text" {...register("img", { required: true })} />
+                                {errors.img && (<small className='text-red-700 pl-14'>Photo URL is Required</small>)}
+
                             </div>
                         </div>
                         <div className='flex justify-center  mt-10'>
