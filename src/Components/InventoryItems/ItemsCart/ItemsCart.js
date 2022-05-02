@@ -1,9 +1,14 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../Button/Button';
 import './ItemsCart.css';
 const ItemsCart = ({ inventory }) => {
     console.log(inventory);
-    const { description, img, price, productName, quantity, supplier } = inventory;
+    const { _id, description, img, price, productName, quantity, supplier } = inventory;
+    const navigate = useNavigate();
+    const navigateToItemsDetail = id => {
+        navigate(`/inventory/${id}`);
+    }
 
     return (
         <div className='col-span-3 md:col-span-1 lg:col-span-1 flex items-stretch '>
@@ -22,8 +27,8 @@ const ItemsCart = ({ inventory }) => {
 
                     <p className=''> <span className='font-bold'>Supplier Name: </span> {supplier}</p>
                 </div>
-                <div className='btn' >
-                    <Button>Explore Now</Button>
+                <div onClick={() => navigateToItemsDetail(_id)} className='btn' >
+                    <Button >Explore Now</Button>
                 </div>
             </div>
         </div>
