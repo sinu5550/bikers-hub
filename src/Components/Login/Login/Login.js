@@ -41,10 +41,10 @@ const Login = () => {
         const email = emailRef.current.value;
         if (email) {
             await sendPasswordResetEmail(email);
-            toast('Email Sent');
+            toast.success('Reset Password Email Sent');
         }
         else {
-            toast('Enter Your Email Address');
+            toast.error('Enter Your Email Address');
         }
     }
     if (loading || sending) {
