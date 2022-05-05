@@ -17,7 +17,7 @@ const AddInventoryItems = () => {
             return toast.error('Input field cannot be empty');
         }
 
-        const url = `https://fast-plains-59234.herokuapp.com/inventory`;
+        const url = `http://localhost:5000/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {
@@ -41,7 +41,7 @@ const AddInventoryItems = () => {
 
     };
     return (
-        <div className='mt-28'>
+        <div className='my-16'>
             <div className='bg-white mx-auto w-10/12 py-10 pt-6 px-0 shadow-lg'>
                 <img src={brandLogo} width='200px' className='block mx-auto' alt="BIKERS_HUB" />
                 <h1 className='text-center text-3xl font-bold mb-8 title'>Add Items</h1>

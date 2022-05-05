@@ -1,13 +1,13 @@
 import React from 'react';
 import './Banner.css';
-import bikeImg from '../../../Images/banner-img.png';
+import bikeImg from '../../../Images/r15-darknight.png';
 import brandLogo from '../../../Images/bikers-hub.png';
 
 const Banner = () => {
     return (
         <div>
-            <div className='banner grid grid-cols-2 pt-16 md:pt-28 overflow-hidden  '>
-                <div className='mt-16 md:mt-0 col-span-2 md:col-span-1 text-white banner-title flex flex-col justify-center items-center md:ml-28'>
+            <div className='banner grid grid-cols-2 pt-8 md:pt-10 overflow-hidden  '>
+                <div className='mt-16 md:mt-0 col-span-2 md:col-span-1 text-white banner-title flex flex-col justify-center items-center md:ml-16'>
 
                     <h1 data-aos="fade-down" className='mt-0'>SUPER OFFER</h1>
 
@@ -25,7 +25,10 @@ const Banner = () => {
                 <div data-aos="fade-left"
                     data-aos-anchor="#example-anchor"
                     data-aos-offset="500"
-                    data-aos-duration="1000" className='w-full my-4 col-span-2  md:col-span-1 '>
+                    data-aos-duration="1000" className='w-full my-4 col-span-2 md:hidden  md:col-span-1 xl:block '>
+                    <img src={bikeImg} alt="R15 V3" />
+                </div>
+                <div className='w-full my-4 col-span-2 hidden  md:block xl:hidden md:col-span-1 '>
                     <img src={bikeImg} alt="R15 V3" />
                 </div>
             </div>

@@ -1,0 +1,40 @@
+.input-container input {
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 40px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid rgb(191, 191, 191);
+    background-color: transparent;
+
+}
+
+.title {
+    color: #207398;
+}
+
+.input-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    width: 400px;
+    margin-top: 50px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: white;
+
+}
+
+.anchor-btn {
+    text-decoration: none;
+    color: rgb(1, 1, 185);
+}
+
+@media only screen and (max-width: 600px) {
+    .input-container {
+        width: 90%;
+    }
+}
