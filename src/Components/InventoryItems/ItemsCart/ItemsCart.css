@@ -1,9 +1,9 @@
-.btn {
+.manage-btn {
     display: inline-block;
     margin-top: auto;
 }
 
-.card {
+.items-container {
     display: flex;
     flex-direction: column;
 }

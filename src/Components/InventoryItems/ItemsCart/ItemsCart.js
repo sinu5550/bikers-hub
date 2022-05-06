@@ -15,7 +15,7 @@ const ItemsCart = ({ inventory }) => {
             <div data-aos="fade-down"
                 data-aos-easing="linear"
                 data-aos-duration="500"
-                className=' shadow-lg w-full  p-4 text-center bg-white self-auto card '>
+                className=' shadow-lg w-full  p-4 text-center bg-white self-auto items-container '>
                 <img src={img} alt="" className=' mx-auto ' />
                 <div className='md:px-8 px-0 py-4'>
                     <p className='text-2xl font-[poppins] font-bold uppercase'>{productName}</p>
@@ -27,8 +27,9 @@ const ItemsCart = ({ inventory }) => {
 
                     <p className=''> <span className='font-bold'>Supplier Name: </span> {supplier}</p>
                 </div>
-                <div onClick={() => navigateToItemsDetail(_id)} className='btn' >
-                    <Button >Explore Now</Button>
+                <div onClick={() => navigateToItemsDetail(_id)}
+                    className='manage-btn'>
+                    <Button >Update Stock</Button>
                 </div>
             </div>
         </div>

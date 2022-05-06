@@ -29,8 +29,8 @@ const ManageItems = () => {
     return (
         <div>
             <h1 className='text-center font-bold text-xl mt-5'>Manage inventory items: {inventory.length}</h1>
-            <div className="table w-11/12 mx-auto p-2">
-                <table className="w-full border">
+            <div className=" w-11/12 mx-auto p-2 overflow-x-auto">
+                <table className=" table table-compact w-full">
                     <thead>
                         <tr className="bg-gray-50 border-b">
 
