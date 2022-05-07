@@ -9,7 +9,7 @@ const Footer = () => {
     const year = today.getFullYear();
     return (
         <div>
-            <footer className="footer p-10 bg-slate-800 text-neutral-content mt-32">
+            <footer className="footer p-10 bg-slate-800 text-neutral-content mt-[15%]">
                 <div>
                     <span className="footer-title">Services</span>
                     <Link to='/' className="link link-hover">Branding</Link>

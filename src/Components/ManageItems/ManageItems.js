@@ -32,13 +32,19 @@ const ManageItems = () => {
     }
     return (
         <div>
-            <h1 className='text-center font-bold text-xl mt-5'>Manage inventory items: {inventory.length}</h1>
+            <h1 className='text-center font-bold text-xl mt-5'>Manage inventory items <br /> Total: {inventory.length}</h1>
             <div className=" w-11/12 mx-auto p-2 overflow-x-auto">
                 <table className=" table table-compact w-full">
                     <thead>
                         <tr className="bg-gray-50 border-b">
 
 
+                            <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
+                                <div className="flex items-center justify-center">
+                                    Product Image
+
+                                </div>
+                            </th>
                             <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
                                 <div className="flex items-center justify-center">
                                     Product Name
@@ -74,13 +80,13 @@ const ManageItems = () => {
                     {
                         inventory.map(inventory => <tbody key={inventory._id}>
                             <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-
-                                <td className="p-2 border-r">{inventory.productName}</td>
+                                <td className="p-2 border-r"><img src={inventory?.img} alt="Bike" width="80px" className='mx-auto' /></td>
+                                <td className="p-2 border-r">{inventory?.productName}</td>
                                 <td className="p-2 border-r">{inventory?.email}</td>
-                                <td className="p-2 border-r">BDT {inventory.price}</td>
-                                <td className="p-2 border-r">{inventory.quantity}</td>
+                                <td className="p-2 border-r">BDT {inventory?.price}</td>
+                                <td className="p-2 border-r">{inventory?.quantity}</td>
                                 <td>
-                                    <button onClick={() => handleEdit(inventory._id)} className="bg-blue-500 px-4 py-2 text-white hover:shadow-lg text-xs font-thin mr-2">Edit</button>
+                                    <button onClick={() => handleEdit(inventory._id)} className="bg-blue-500  p-2 text-white hover:shadow-lg text-xs font-thin mr-2">Restock</button>
                                     <Link to='/manage' onClick={() => handleDelete(inventory._id)} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin ml-2">Remove</Link>
                                 </td>
                             </tr>
