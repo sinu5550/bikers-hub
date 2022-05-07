@@ -15,7 +15,7 @@ const AddInventoryItems = () => {
 
     const onSubmit = (data) => {
 
-        console.log(data);
+        // console.log(data);
         if (!data) {
             return toast.error('Input field cannot be empty');
         }

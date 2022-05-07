@@ -10,8 +10,10 @@ import Inventory from './Components/Inventory/Inventory';
 import ItemDetails from './Components/ItemDetails/ItemDetails';
 import Loading from './Components/Loading/Loading';
 import Login from './Components/Login/Login/Login';
+import RequireAuth from './Components/Login/RequireAuth/RequireAuth';
 import SignUp from './Components/Login/SignUp/SignUp';
 import ManageItems from './Components/ManageItems/ManageItems';
+import MyItems from './Components/MyItems/MyItems';
 import NotFound from './Components/NotFound/NotFound';
 
 function App() {
@@ -27,7 +29,17 @@ function App() {
           <Route path='signup' element={<SignUp></SignUp>} />
           <Route path='inventory' element={<Inventory></Inventory>} />
           <Route path='inventory/:itemsId' element={<ItemDetails></ItemDetails>} />
-          <Route path='addItems' element={<AddInventoryItems></AddInventoryItems>} />
+          <Route path='addItems' element={
+            <RequireAuth>
+              <AddInventoryItems></AddInventoryItems>
+            </RequireAuth>
+          } />
+          <Route path='myItems' element={
+            <RequireAuth>
+              <MyItems></MyItems>
+            </RequireAuth>
+          } />
+          <Route path='myItems/:itemsId' element={<ItemDetails></ItemDetails>} />
           <Route path='manage' element={<ManageItems></ManageItems>} />
           <Route path='loading' element={<Loading></Loading>} />
           <Route path='*' element={<NotFound></NotFound>} />

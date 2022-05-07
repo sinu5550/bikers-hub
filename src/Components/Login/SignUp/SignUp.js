@@ -1,8 +1,8 @@
 import React from 'react';
-import { useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
-import Button from '../../Button/Button';
 import Loading from '../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './SignUp.css';
@@ -18,23 +18,30 @@ const SignUp = () => {
         error
 
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-
+    const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
 
     if (user) {
         navigate('/home')
     }
     //  ========================= handling sign up button ==============================================
 
-    const handleSignUp = event => {
+    const handleSignUp = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const password = event.target.password.value;
         createUserWithEmailAndPassword(email, password, name)
+
+        await sendEmailVerification();
+        toast.success('Email Verification Code Send');
+
+
     }
     if (loading) {
         return <Loading></Loading>;
     }
+
+
     return (
         <div className='pb-8'>
 
@@ -49,7 +56,7 @@ const SignUp = () => {
                         error && <p className="text-red-700 ml-5">{error.message}</p>
                     }
                     <div className='flex justify-center'>
-                        <button type="submit" className=' mt-2 px-4 py-2'> <Button>Sign up</Button> </button>
+                        <button type="submit" className=' mt-4 px-4 py-2 bg-red-700 text-indigo-50   rounded  hover:bg-red-600 duration-500'> Sign up </button>
                     </div>
                 </form>
                 <SocialLogin />
