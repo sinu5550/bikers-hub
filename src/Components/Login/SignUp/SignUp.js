@@ -36,9 +36,9 @@ const SignUp = () => {
         return <Loading></Loading>;
     }
     return (
-        <div>
+        <div className='pb-8'>
 
-            <div className=' input-container py-3 mb-8'>
+            <div className=' input-container py-3 '>
                 <h3 className='text-center title mb-5 '>Create  Account</h3>
                 <form onSubmit={handleSignUp}>
                     <input className='mb-4 ' type="text" name="name" id="name" placeholder='Your Full Name' required />

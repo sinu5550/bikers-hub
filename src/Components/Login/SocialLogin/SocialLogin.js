@@ -20,6 +20,11 @@ const SocialLogin = () => {
             <p className='text-red-600 ml-5'> {error?.message}</p>
         </div>
     }
+    if (loading) {
+        loadingHandle = <div>
+            <p className='text-black ml-5'>Loading...</p>
+        </div>
+    }
     if (user) {
         navigate(from, { replace: true });
     }

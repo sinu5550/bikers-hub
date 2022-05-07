@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AddInventoryItems from './Components/AddInventoryItems/AddInventoryItems';
+import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Header/Navbar/Navbar';
 import Home from './Components/Home/Home';
 import Inventory from './Components/Inventory/Inventory';
@@ -33,6 +34,7 @@ function App() {
         </Routes>
       </div>
       <ToastContainer></ToastContainer>
+      <Footer></Footer>
     </div>
   );
 }

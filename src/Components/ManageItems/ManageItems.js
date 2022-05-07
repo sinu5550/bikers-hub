@@ -1,6 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useInventory from '../Hooks/useInventory';
 // import ManageInventory from '../ManageInventory/ManageInventory';
@@ -8,6 +8,7 @@ import useInventory from '../Hooks/useInventory';
 const ManageItems = () => {
     const [inventory, setInventory] = useInventory();
     const [user] = useAuthState(auth);
+    const navigate = useNavigate();
     console.log(user);
     const handleDelete = id => {
 
@@ -26,6 +27,9 @@ const ManageItems = () => {
                 })
         }
     }
+    const handleEdit = id => {
+        navigate(`/inventory/${id}`)
+    }
     return (
         <div>
             <h1 className='text-center font-bold text-xl mt-5'>Manage inventory items: {inventory.length}</h1>
@@ -37,7 +41,7 @@ const ManageItems = () => {
 
                             <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
                                 <div className="flex items-center justify-center">
-                                    Name
+                                    Product Name
 
                                 </div>
                             </th>
@@ -49,7 +53,13 @@ const ManageItems = () => {
                             </th>
                             <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
                                 <div className="flex items-center justify-center">
-                                    Address
+                                    Price
+
+                                </div>
+                            </th>
+                            <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
+                                <div className="flex items-center justify-center">
+                                    Quantity
 
                                 </div>
                             </th>
@@ -66,10 +76,11 @@ const ManageItems = () => {
                             <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
 
                                 <td className="p-2 border-r">{inventory.productName}</td>
-                                <td className="p-2 border-r">{user?.email}</td>
-                                <td className="p-2 border-r">{inventory.price}</td>
+                                <td className="p-2 border-r">{inventory?.email}</td>
+                                <td className="p-2 border-r">BDT {inventory.price}</td>
+                                <td className="p-2 border-r">{inventory.quantity}</td>
                                 <td>
-                                    <Link to='/' className="bg-blue-500 px-4 py-2 text-white hover:shadow-lg text-xs font-thin mr-2">Edit</Link>
+                                    <button onClick={() => handleEdit(inventory._id)} className="bg-blue-500 px-4 py-2 text-white hover:shadow-lg text-xs font-thin mr-2">Edit</button>
                                     <Link to='/manage' onClick={() => handleDelete(inventory._id)} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin ml-2">Remove</Link>
                                 </td>
                             </tr>

@@ -6,12 +6,18 @@ import { getAuth } from 'firebase/auth';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyBfmXnyOrhUO92Qzdd9rhjFkZy-MZbAFRs",
-    authDomain: "bikers-hub-71c12.firebaseapp.com",
-    projectId: "bikers-hub-71c12",
-    storageBucket: "bikers-hub-71c12.appspot.com",
-    messagingSenderId: "440137578660",
-    appId: "1:440137578660:web:c956b8e91a692f3edd0e31"
+    apiKey: process.env.REACT_APP_apiKey,
+    authDomain: process.env.REACT_APP_authDomain,
+    projectId: process.env.REACT_APP_projectId,
+    storageBucket: process.env.REACT_APP_storageBucket,
+    messagingSenderId: process.env.REACT_APP_messagingSenderId,
+    appId: process.env.REACT_APP_appId
+    // apiKey: "AIzaSyBfmXnyOrhUO92Qzdd9rhjFkZy-MZbAFRs",
+    // authDomain: "bikers-hub-71c12.firebaseapp.com",
+    // projectId: "bikers-hub-71c12",
+    // storageBucket: "bikers-hub-71c12.appspot.com",
+    // messagingSenderId: "440137578660",
+    // appId: "1:440137578660:web:c956b8e91a692f3edd0e31"
 };
 
 // Initialize Firebase

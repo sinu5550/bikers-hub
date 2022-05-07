@@ -4,11 +4,14 @@ import Button from '../Button/Button';
 import './AddInventoryItems.css';
 import brandLogo from '../../Images/bikers-hub.png';
 import { toast } from 'react-toastify';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
 
 
 
 const AddInventoryItems = () => {
     const { register, reset, handleSubmit, formState: { errors } } = useForm();
+    const [user] = useAuthState(auth);
 
     const onSubmit = (data) => {
 
@@ -41,8 +44,8 @@ const AddInventoryItems = () => {
 
     };
     return (
-        <div className='my-16'>
-            <div className='bg-white mx-auto w-10/12 py-10 pt-6 px-0 shadow-lg'>
+        <div className='mt-10  '>
+            <div className='bg-white mx-auto w-10/12 py-10 pt-6 px-0 shadow-lg '>
                 <img src={brandLogo} width='200px' className='block mx-auto' alt="BIKERS_HUB" />
                 <h1 className='text-center text-3xl font-bold mb-8 title'>Add Items</h1>
                 <div className=''>
@@ -64,14 +67,16 @@ const AddInventoryItems = () => {
                                 {errors.quantity && (<small className='text-red-700 pl-14'>Quantity is Required</small>)}
 
 
-                                <textarea className='mb-3' placeholder='Description' {...register("description", { required: true })} />
-                                {errors.description && (<small className='text-red-700 pl-14'>Description is Required</small>)}
+                                <input className='mb-3 ' placeholder='Your Email' value={user?.email} type="text" {...register("email", { required: true })} />
+                                {errors.img && (<small className='text-red-700 pl-14'>Email is Required</small>)}
 
                                 <input className='mb-3 ' placeholder='Photo URL' type="text" {...register("img", { required: true })} />
                                 {errors.img && (<small className='text-red-700 pl-14'>Photo URL is Required</small>)}
 
                             </div>
                         </div>
+                        <textarea className='mb-3' placeholder='Description' {...register("description", { required: true })} />
+                        {errors.description && (<small className='text-red-700 pl-14'>Description is Required</small>)}
                         <div className='flex justify-center  mt-10'>
                             <Button type='submit'>
                                 Add Items

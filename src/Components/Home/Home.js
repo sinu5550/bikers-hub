@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Banner from '../Header/Banner/Banner';
 import useInventory from '../Hooks/useInventory';
 import ItemsCart from '../InventoryItems/ItemsCart/ItemsCart';
@@ -10,7 +11,7 @@ const Home = () => {
         <div>
 
             <Banner></Banner>
-            <section className='pb-28'>
+            <section className='pb-10'>
                 <h1 className='text-center flex-none font-bold text-3xl font-[poppins] uppercase mt-10  '>  inventory <span className='text-red-700'>items</span></h1>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 px-8  container mx-auto'>
                     {
@@ -18,6 +19,7 @@ const Home = () => {
                     }
                 </div>
             </section>
+            <p className='text-center text-xl'> <Link to='/manage' className='link link-primary'>Manage Inventory  </Link> </p>
         </div>
     );
 };

@@ -70,8 +70,8 @@ const ItemDetails = () => {
             <div className='py-16'>
                 <div className='shadow-lg w-11/12 mx-auto p-4  bg-white self-auto  '>
                     <div className='grid grid-cols-2 '>
-                        <div className='w-full col-span-2 md:col-span-1 flex items-center'>
-                            <img className='mx-auto' src={inventory.img} alt={inventory.productName} />
+                        <div className='w-11/12 col-span-2 md:col-span-1 flex items-center'>
+                            <img className='mx-auto ' src={inventory.img} alt={inventory.productName} />
                         </div>
                         <div className='md:pr-16 my-auto col-span-2 md:col-span-1'>
                             <div className='mx-auto font-[poppins]'>

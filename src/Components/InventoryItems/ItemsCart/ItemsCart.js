@@ -11,12 +11,12 @@ const ItemsCart = ({ inventory }) => {
     }
 
     return (
-        <div className='col-span-3 md:col-span-1 lg:col-span-1 flex items-stretch '>
-            <div data-aos="fade-down"
+        <div className='col-span-3 md:col-span-1 lg:col-span-1 flex items-stretch overflow-x-hidden '>
+            <div data-aos="fade-left"
                 data-aos-easing="linear"
-                data-aos-duration="500"
+                data-aos-duration="300"
                 className=' shadow-lg w-full  p-4 text-center bg-white self-auto items-container '>
-                <img src={img} alt="" className=' mx-auto ' />
+                <img src={img} alt="" className=' mx-auto w-11/12 hover:scale-110 transition-all duration-500 ' />
                 <div className='md:px-8 px-0 py-4'>
                     <p className='text-2xl font-[poppins] font-bold uppercase'>{productName}</p>
                     <p>{description.slice(0, 100)}...</p>

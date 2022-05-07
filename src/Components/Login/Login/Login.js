@@ -53,13 +53,13 @@ const Login = () => {
 
 
     return (
-        <div>
+        <div className='pb-8'>
             <div className=' input-container py-3 shadow-md '>
                 <h3 className='text-center title mb-5'>Login to Continue</h3>
                 <form onSubmit={handleSubmit} >
                     <input className='mb-4 ' type="email" ref={emailRef} name="email" id="email" placeholder='Enter Your Email' required />
                     <input type="password" ref={passwordRef} name="password" id="password" placeholder='Password' required />
-                    <button onClick={resetPassword} className='anchor-btn btn btn-link pl-5'>Forgot Password?</button>
+                    <button onClick={resetPassword} className='anchor-btn  pl-5'>Forgot Password?</button>
 
                     {
                         error && <p className="text-red-700 ml-5">{error.message}</p>
