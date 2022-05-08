@@ -10,13 +10,14 @@ import './Home.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
-
-
+import Loading from '../Loading/Loading';
 
 
 const Home = () => {
-    const [inventory] = useInventory();
+    const [inventory, loading] = useInventory();
     const [user] = useAuthState(auth);
+
+
     const handleContactUs = () => {
         if (!user) {
             toast.info('Sign In First');
@@ -30,14 +31,14 @@ const Home = () => {
                 <h1 className='text-center flex-none font-bold text-3xl font-[poppins] uppercase mt-10  '>  inventory <span className='text-red-700'>items</span></h1>
                 <div className='grid md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 px-8  container mx-auto'>
                     {
-                        inventory.slice(0, 6).map(inventory => <ItemsCart key={inventory._id} inventory={inventory} ></ItemsCart>)
+                        inventory.slice(0, 6).map(inventory => loading ? <ItemsCart key={inventory._id} inventory={inventory} ></ItemsCart> : <Loading></Loading>)
                     }
                 </div>
             </section>
-            <p className='text-center text-xl'> <Link to='/manage' className='link link-primary'>Manage Inventory  </Link> </p>
+            <p className='text-center text-xl pr-[5%]'> <Link to='/manage' className='float-right   border bg-sky-600 text-white hover:bg-sky-700 transition-all duration-500 py-2 px-3'>Manage Inventory &gt;&gt; </Link> </p>
 
             {/* ===================== Bonus Sections =================== */}
-            <section className="w-full bg-slate-800 text-indig-50 p-5 my-5">
+            <section className="w-full bg-slate-800 text-indig-50 p-5 my-5 mt-16">
                 <div className="w-11/12 mx-auto py-8">
                     <div className="flex flex-col md:flex-row md:justify-between items-center justify-center">
                         <div className="">
@@ -51,9 +52,9 @@ const Home = () => {
                 </div>
             </section>
             <section className="w-11/12   pt-5 ">
-                <div className="grid grid-cols-3 ">
-                    <div className="col-span-3 lg:col-span-2 mx-auto flex flex-col justify-center mb-8">
-                        <h1 className='text-2xl font-bold'>GET IN TOUCH WITH US</h1>
+                <div className="grid grid-cols-3 ml-4">
+                    <div className="col-span-3 lg:col-span-2 mx-auto flex flex-col justify-center mb-8 ">
+                        <h1 className='text-2xl font-bold' >GET IN TOUCH WITH US</h1>
                         <div className='flex items-center'>
                             <div className='mr-5'>
                                 <GrMapLocation size={35} />

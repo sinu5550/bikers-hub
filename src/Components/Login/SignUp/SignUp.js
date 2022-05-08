@@ -3,6 +3,7 @@ import { useCreateUserWithEmailAndPassword, useSendEmailVerification } from 'rea
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import useToken from '../../Hooks/useToken';
 import Loading from '../../Loading/Loading';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import './SignUp.css';
@@ -18,9 +19,9 @@ const SignUp = () => {
         error
 
     ] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
-    const [sendEmailVerification, sending, error1] = useSendEmailVerification(auth);
-
-    if (user) {
+    const [sendEmailVerification] = useSendEmailVerification(auth);
+    const [token] = useToken(user);
+    if (token) {
         navigate('/home')
     }
     //  ========================= handling sign up button ==============================================

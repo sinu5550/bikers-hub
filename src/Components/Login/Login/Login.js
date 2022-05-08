@@ -7,7 +7,7 @@ import './Login.css';
 import Button from '../../Button/Button';
 import SocialLogin from '../SocialLogin/SocialLogin';
 import Loading from '../../Loading/Loading';
-import axios from 'axios';
+import useToken from '../../Hooks/useToken';
 
 const Login = () => {
     const emailRef = useRef('');
@@ -24,23 +24,23 @@ const Login = () => {
         loading,
         error, ,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+    const [token] = useToken(user);
 
-
+    if (token) {
+        navigate(from, { replace: true });
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const email = emailRef.current.value;
         const password = passwordRef.current.value;
         await signInWithEmailAndPassword(email, password);
-        const { data } = await axios.post('https://fast-plains-59234.herokuapp.com/login', { email });
-        console.log(data);
-        localStorage.setItem('accessToken', data.accessToken);
+
 
     }
-    if (user) {
-        navigate(from, { replace: true });
-    }
-    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
+
+
     const resetPassword = async () => {
         const email = emailRef.current.value;
         if (email) {

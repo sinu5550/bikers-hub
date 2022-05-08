@@ -6,10 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Button from '../Button/Button';
+import Loading from '../Loading/Loading';
 
 const MyItems = () => {
     const [myItems, setMyItems] = useState([]);
-    console.log(myItems);
+    const [loading, setLoading] = useState(false);
+    // console.log(myItems);
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     // console.log(user);
@@ -24,11 +26,11 @@ const MyItems = () => {
                     }
                 });
                 setMyItems(data);
+                setLoading(true);
             }
             catch (error) {
-                console.log(error.message);
                 if (error.response.status === 403 || error.response.status === 401) {
-                    toast.error('Error Login Token Failed')
+                    toast.error('Illegal Login Attemped')
                     signOut(auth);
                     navigate('/login');
                 }
@@ -109,7 +111,7 @@ const MyItems = () => {
                         </tr>
                     </thead>
                     {
-                        myItems.map(myItem => <tbody key={myItem._id}>
+                        myItems.map(myItem => loading ? <tbody key={myItem._id}>
                             <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
                                 <td></td>
                                 <td className="p-2 border-r"><img src={myItem?.img} alt="Bike" width="80px" className='mx-auto' /></td>
@@ -123,7 +125,7 @@ const MyItems = () => {
                                     <Link to='/manage' onClick={() => handleDelete(myItem._id)} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin ml-2">Remove</Link>
                                 </td>
                             </tr>
-                        </tbody>)
+                        </tbody> : <Loading></Loading>)
                     }
                 </table>
             </div>

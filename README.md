@@ -1,70 +1,28 @@
-# Getting Started with Create React App
+# Website name - BIKERS HUB
+# Live Site Link
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Live Site - [https://bikers-hub-71c12.firebaseapp.com/](https://bikers-hub-71c12.firebaseapp.com/)
+# Stack Overlow Question - [Question Link](https://stackoverflow.com/questions/72147369/decrease-number-server-making-with-express-put-method) 
 
-## Available Scripts
+# Things I did to create the website
+1. First I take a niche on Warehouse of Bike.
+2. Than I was thinking about the design.
+3. I started with a beautiful responsive navbar .
+4. I installed react router dom and then created routing pages in app.js file.
+5. I installed firebase with npm command and then I created login and sign up page with email pass auth and google auth provide.
+6. I used firebase react hook for google authentication/login. Then I handled all errors.
+7. Then i created Banner page and then i Created Inventory items dynamically and gave it a route called inventory.
+8. Then i created single inventory items route and implemented single items by it's id.
+9. I implemented JWT in login page and also in my items page. Where I can see only my product with my email in my items route.
+10. I made require auth and made Manage items ad items and my items route protected.
+11. after That i made extra 2 sections for bonus point. 
+12. I had put some animation in this project.
+13. I created a server side with mongodb atlas and exoress.
+14. I made a crud operation in this server side. 
+15. I used heroku for server side deployment.
+# Technology I used 
+1. I used react tailwind framework for whole website . 
+2. I used react icons for little icons . Where i used many libraries.
+3. I use Daisyui by tailwind for tabulra form of mu items and manage items and footer item.
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Thank You

@@ -4,10 +4,12 @@ import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Button from '../Button/Button';
 import useInventory from '../Hooks/useInventory';
-// import ManageInventory from '../ManageInventory/ManageInventory';
+import Loading from '../Loading/Loading';
+
 
 const ManageItems = () => {
-    const [inventory, setInventory] = useInventory();
+    const [inventory, setInventory, loading] = useInventory();
+
     const [user] = useAuthState(auth);
     const navigate = useNavigate();
     console.log(user);
@@ -26,6 +28,7 @@ const ManageItems = () => {
                     const remaining = inventory.filter(inventory => inventory._id !== id);
                     setInventory(remaining);
                 })
+
         }
     }
     const handleEdit = id => {
@@ -79,20 +82,21 @@ const ManageItems = () => {
                         </tr>
                     </thead>
                     {
-                        inventory.map(inventory => <tbody key={inventory._id}>
-                            <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-                                <td></td>
-                                <td className="p-2 border-r"><img src={inventory?.img} alt="Bike" width="80px" className='mx-auto' /></td>
-                                <td className="p-2 border-r">{inventory?.productName}</td>
-                                <td className="p-2 border-r">{inventory?.email}</td>
-                                <td className="p-2 border-r">BDT {inventory?.price}</td>
-                                <td className="p-2 border-r">{inventory?.quantity}</td>
-                                <td>
-                                    <button onClick={() => handleEdit(inventory._id)} className="bg-blue-500  p-2 text-white hover:shadow-lg text-xs font-thin mr-2">Restock</button>
-                                    <Link to='/manage' onClick={() => handleDelete(inventory._id)} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin ml-2">Remove</Link>
-                                </td>
-                            </tr>
-                        </tbody>)
+                        inventory.map(inventory => loading ?
+                            <tbody key={inventory._id}>
+                                <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                    <td></td>
+                                    <td className="p-2 border-r"><img src={inventory?.img} alt="Bike" width="80px" className='mx-auto' /></td>
+                                    <td className="p-2 border-r">{inventory?.productName}</td>
+                                    <td className="p-2 border-r">{inventory?.email}</td>
+                                    <td className="p-2 border-r">BDT {inventory?.price}</td>
+                                    <td className="p-2 border-r">{inventory?.quantity}</td>
+                                    <td>
+                                        <button onClick={() => handleEdit(inventory._id)} className="bg-blue-500  p-2 text-white hover:shadow-lg text-xs font-thin mr-2">Restock</button>
+                                        <Link to='/manage' onClick={() => handleDelete(inventory._id)} className="bg-red-500 p-2 text-white hover:shadow-lg text-xs font-thin ml-2">Remove</Link>
+                                    </td>
+                                </tr>
+                            </tbody> : <Loading></Loading>)
                     }
                 </table>
             </div>

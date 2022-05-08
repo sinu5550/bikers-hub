@@ -4,12 +4,13 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
 import { FcGoogle } from 'react-icons/fc';
 import './SocialLogin.css';
+import useToken from '../../Hooks/useToken';
 
 const SocialLogin = () => {
     // ===================== using google firebase react hook ==========================
 
     const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
-
+    const [token] = useToken(user);
     const navigate = useNavigate();
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
@@ -25,7 +26,7 @@ const SocialLogin = () => {
             <p className='text-black ml-5'>Loading...</p>
         </div>
     }
-    if (user) {
+    if (token) {
         navigate(from, { replace: true });
     }
     return (

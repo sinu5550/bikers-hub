@@ -68,7 +68,7 @@ const AddInventoryItems = () => {
 
 
                                 <input className='mb-3 ' placeholder='Your Email' value={user?.email} type="text" {...register("email", { required: true })} readOnly />
-                                {errors.img && (<small className='text-red-700 pl-14'>Email is Required</small>)}
+                                {errors.email && (<small className='text-red-700 pl-14'>Email is Required</small>)}
 
                                 <input className='mb-3 ' placeholder='Photo URL' type="text" {...register("img", { required: true })} />
                                 {errors.img && (<small className='text-red-700 pl-14'>Photo URL is Required</small>)}
