@@ -9,7 +9,7 @@
 //     const handleDelete = id => {
 //         const proceed = window.confirm('Are yo sure? You want to delete this item?');
 //         if (proceed) {
-//             const url = `http://localhost:5000/inventory/${id}`;
+//             const url = `https://fast-plains-59234.herokuapp.com/inventory/${id}`;
 //             fetch(url, {
 //                 method: 'DELETE'
 //             })

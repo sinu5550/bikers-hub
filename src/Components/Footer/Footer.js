@@ -34,7 +34,7 @@ const Footer = () => {
             <footer className="footer px-10 py-4  bg-slate-800 text-neutral-content border-base-300">
                 <div className="items-center grid-flow-col">
                     <img src={brandLogo} alt="BIKERS_HUB" width='150px' />
-                    <p>BIKERS HUB LTD. <br /><small>Copyright ©️ {year} All rights reserved by Bikers Hub</small> </p>
+                    <p>BIKERS HUB LTD. <br /><small>Copyright &copy; {year} All rights reserved by Bikers Hub</small> </p>
                 </div>
                 <div className="md:place-self-center md:justify-self-end">
                     <div className="grid grid-flow-col gap-4 items-center cursor-pointer ">

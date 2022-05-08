@@ -1,5 +1,5 @@
 .form-control input,
-textarea {
+.form-control textarea {
     width: 80%;
     display: block;
     margin: 8px auto;
@@ -10,7 +10,7 @@ textarea {
 
 }
 
-textarea {
+.form-control textarea {
     border-bottom: none;
     outline: 2px solid gray;
     height: 80px;

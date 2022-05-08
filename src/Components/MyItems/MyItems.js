@@ -16,7 +16,7 @@ const MyItems = () => {
     useEffect(() => {
         const getItems = async () => {
             const email = user.email;
-            const url = `http://localhost:5000/myItems?email=${email}`;
+            const url = `https://fast-plains-59234.herokuapp.com/myItems?email=${email}`;
             try {
                 const { data } = await axios.get(url, {
                     headers: {
@@ -40,7 +40,7 @@ const MyItems = () => {
 
         const proceed = window.confirm('Are yo sure? You want to delete this item?');
         if (proceed) {
-            const url = `http://localhost:5000/myItems/${id}`;
+            const url = `https://fast-plains-59234.herokuapp.com/myItems/${id}`;
             console.log(url);
             fetch(url, {
                 method: 'DELETE'
@@ -59,12 +59,11 @@ const MyItems = () => {
     return (
         <div>
             <h1 className='text-center font-bold text-xl mt-5'>Manage My items<br /> Total: {myItems.length}</h1>
-            <div className=" w-11/12 mx-auto p-2 overflow-x-auto">
+            <div className=" w-11/12 mx-auto overflow-x-auto">
                 <table className=" table table-compact w-full">
                     <thead>
                         <tr className="bg-gray-50 border-b">
-
-
+                            <th></th>
                             <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
                                 <div className="flex items-center justify-center">
                                     Product Image
@@ -112,7 +111,7 @@ const MyItems = () => {
                     {
                         myItems.map(myItem => <tbody key={myItem._id}>
                             <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
-
+                                <td></td>
                                 <td className="p-2 border-r"><img src={myItem?.img} alt="Bike" width="80px" className='mx-auto' /></td>
                                 <td className="p-2 border-r">{myItem?.productName}</td>
                                 <td className="p-2 border-r">{myItem?.email}</td>

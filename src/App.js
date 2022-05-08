@@ -3,6 +3,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import AddInventoryItems from './Components/AddInventoryItems/AddInventoryItems';
+import Blogs from './Components/Blogs/Blogs';
 import Footer from './Components/Footer/Footer';
 import Navbar from './Components/Header/Navbar/Navbar';
 import Home from './Components/Home/Home';
@@ -27,8 +28,17 @@ function App() {
           <Route path='home' element={<Home></Home>} />
           <Route path='login' element={<Login></Login>} />
           <Route path='signup' element={<SignUp></SignUp>} />
-          <Route path='inventory' element={<Inventory></Inventory>} />
-          <Route path='inventory/:itemsId' element={<ItemDetails></ItemDetails>} />
+          <Route path='blogs' element={<Blogs></Blogs>} />
+          <Route path='inventory' element={
+            <RequireAuth>
+              <Inventory></Inventory>
+            </RequireAuth>
+          } />
+          <Route path='inventory/:itemsId' element={
+            <RequireAuth>
+              <ItemDetails></ItemDetails>
+            </RequireAuth>
+          } />
           <Route path='addItems' element={
             <RequireAuth>
               <AddInventoryItems></AddInventoryItems>
@@ -39,9 +49,16 @@ function App() {
               <MyItems></MyItems>
             </RequireAuth>
           } />
-          <Route path='myItems/:itemsId' element={<ItemDetails></ItemDetails>} />
-          <Route path='manage' element={<ManageItems></ManageItems>} />
-          <Route path='loading' element={<Loading></Loading>} />
+          <Route path='myItems/:itemsId' element={
+            <RequireAuth>
+              <ItemDetails></ItemDetails>
+            </RequireAuth>
+          } />
+          <Route path='manage' element={
+            <RequireAuth>
+              <ManageItems></ManageItems>
+            </RequireAuth>
+          } />
           <Route path='*' element={<NotFound></NotFound>} />
         </Routes>
       </div>

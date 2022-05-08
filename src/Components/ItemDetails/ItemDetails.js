@@ -9,7 +9,7 @@ const ItemDetails = () => {
     const [inventory, setInventory] = useItemDetails(itemsId);
     const [items, setItems] = useState({});
     useEffect(() => {
-        const url = `http://localhost:5000/inventory/${itemsId}`;
+        const url = `https://fast-plains-59234.herokuapp.com/inventory/${itemsId}`;
         fetch(url)
             .then(res => res.json())
             .then(data => setItems(data))
@@ -24,7 +24,7 @@ const ItemDetails = () => {
             const newItems = { ...items, quantity: newQuantity }
             setItems(newItems)
             // console.log(newQuantity);
-            const url = `http://localhost:5000/inventory/${itemsId}`;
+            const url = `https://fast-plains-59234.herokuapp.com/inventory/${itemsId}`;
             fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -50,7 +50,7 @@ const ItemDetails = () => {
         const newItems = { ...items, quantity: newQuantity }
         setItems(newItems)
         // console.log(newQuantity);
-        const url = `http://localhost:5000/inventory/${itemsId}`;
+        const url = `https://fast-plains-59234.herokuapp.com/inventory/${itemsId}`;
         fetch(url, {
             method: 'PUT',
             headers: {

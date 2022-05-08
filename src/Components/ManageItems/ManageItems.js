@@ -2,6 +2,7 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+import Button from '../Button/Button';
 import useInventory from '../Hooks/useInventory';
 // import ManageInventory from '../ManageInventory/ManageInventory';
 
@@ -14,7 +15,7 @@ const ManageItems = () => {
 
         const proceed = window.confirm('Are yo sure? You want to delete this item?');
         if (proceed) {
-            const url = `http://localhost:5000/inventory/${id}`;
+            const url = `https://fast-plains-59234.herokuapp.com/inventory/${id}`;
             console.log(url);
             fetch(url, {
                 method: 'DELETE'
@@ -38,7 +39,7 @@ const ManageItems = () => {
                     <thead>
                         <tr className="bg-gray-50 border-b">
 
-
+                            <th></th>
                             <th className="p-2 border-r cursor-pointer text-sm font-bold text-gray-500">
                                 <div className="flex items-center justify-center">
                                     Product Image
@@ -80,6 +81,7 @@ const ManageItems = () => {
                     {
                         inventory.map(inventory => <tbody key={inventory._id}>
                             <tr className="bg-gray-100 text-center border-b text-sm text-gray-600">
+                                <td></td>
                                 <td className="p-2 border-r"><img src={inventory?.img} alt="Bike" width="80px" className='mx-auto' /></td>
                                 <td className="p-2 border-r">{inventory?.productName}</td>
                                 <td className="p-2 border-r">{inventory?.email}</td>
@@ -95,7 +97,9 @@ const ManageItems = () => {
                 </table>
             </div>
 
-
+            <div className='flex justify-center mt-10'>
+                <Link to='/addItems' className='text-center'> <Button> Add New Item</Button></Link>
+            </div>
 
 
         </div>

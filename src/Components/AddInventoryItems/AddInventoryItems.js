@@ -20,7 +20,7 @@ const AddInventoryItems = () => {
             return toast.error('Input field cannot be empty');
         }
 
-        const url = `http://localhost:5000/inventory`;
+        const url = `https://fast-plains-59234.herokuapp.com/inventory`;
         fetch(url, {
             method: 'POST',
             headers: {
