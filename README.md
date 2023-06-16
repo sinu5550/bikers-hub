@@ -15,14 +15,13 @@
 8. Then i created single inventory items route and implemented single items by it's id.
 9. I implemented JWT in login page and also in my items page. Where I can see only my product with my email in my items route.
 10. I made require auth and made Manage items ad items and my items route protected.
-11. after That i made extra 2 sections for bonus point. 
-12. I had put some animation in this project.
-13. I created a server side with mongodb atlas and exoress.
-14. I made a crud operation in this server side. 
-15. I used heroku for server side deployment.
+11. I had put some animation in this project.
+12. I created a server side with mongodb atlas and express.
+13. I made a crud operation in this server side. 
+14. I used heroku for server side deployment.
 # Technology I used 
 1. I used react tailwind framework for whole website . 
 2. I used react icons for little icons . Where i used many libraries.
-3. I use Daisyui by tailwind for tabulra form of mu items and manage items and footer item.
+3. I use Daisyui by tailwind for tabular form of mu items and manage items and footer item.
 
 # Thank You
