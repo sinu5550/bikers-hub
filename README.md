@@ -2,7 +2,7 @@
 # Live Site Link
 
 # Live Site - [https://bikers-hub-71c12.firebaseapp.com/](https://bikers-hub-71c12.firebaseapp.com/)
-# Stack Overlow Question - [Question Link](https://stackoverflow.com/questions/72147369/decrease-number-server-making-with-express-put-method) 
+
 
 # Things I did to create the website
 1. First I take a niche on Warehouse of Bike.
